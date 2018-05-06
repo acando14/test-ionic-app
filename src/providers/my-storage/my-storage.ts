@@ -6,28 +6,28 @@ export class MyStorageProvider {
   constructor(private storage: Storage) {
   }
 
-  saveKey(key: String, value) {
+  saveKey(key: string, value) {
       this.storage.set(key, value)
   }
 
-  saveObject(key:String, object:Object) {
+  saveObject(key:string, object:Object) {
       this.storage.set(key, JSON.stringify(object)
       )
   }
 
-  getKey(key: String, callback:Function) {
+  getKey(key: string, callback:Function) {
       this.storage.get(key).then((val) => {
         callback(val);
       });
   }
 
-  getObject(key:String, callback:Function) {
+  getObject(key:string, callback:Function) {
       this.storage.get(key).then((val) =>{
           callback(JSON.parse(val));
       })
   }
 
-  clear(key:String) {
-      this.storage.clear(key);
+  clear(key:string) {
+      this.storage.remove(key);
   }
 }

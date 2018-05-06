@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {MyStorageProvider} from "../../providers/my-storage/my-storage";
 
+const KEY_USER_LIST = "userList";
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -20,7 +22,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, private myStorage: MyStorageProvider) {
     this.myStorage.getObject(
-        "userList",
+        KEY_USER_LIST,
         (val) => {
           this.userList = val;
         }
@@ -37,7 +39,7 @@ export class HomePage {
 
   save(){
     this.myStorage.saveObject(
-        "userList",
+        KEY_USER_LIST,
         this.userList
     );
   }
@@ -45,7 +47,7 @@ export class HomePage {
   clear(){
     this.userList = [];
     this.myStorage.clear(
-        "userList"
+        KEY_USER_LIST
     )
   }
 }

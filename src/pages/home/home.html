@@ -6,21 +6,31 @@
 
 <ion-content padding>
   <h2>Welcome to Ionic!</h2>
+
   <div *ngFor="let user of userList">
     <ion-card id="{{user.id}}">
       <ion-card-header>
-        {{user.username}}
+
       </ion-card-header>
       <ion-card-content>
-        <ion-item>
-          <ion-label floating>Username</ion-label>
-          <ion-input type="text" [(ngModel)]="user.username"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Age</ion-label>
-          <ion-input type="text" [(ngModel)]="user.age"></ion-input>
-        </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input type="text" [(ngModel)]="user.username"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-6>
+              <ion-item>
+                <ion-label floating>Age</ion-label>
+                <ion-input type="number" [(ngModel)]="user.age"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-card-content>
+
     </ion-card>
   </div>
   <br />
